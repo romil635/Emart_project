@@ -57,7 +57,7 @@ function Main_Navbar() {
     <Navbar collapseOnSelect expand="xl" className="flex items-center container z-10">
       <Container fluid className='flex justify-between'>
         <Navbar.Brand href="#home" className='max-xl:order-2'>
-          <img alt="logo" src="https://emart.wpthemedemos.com/plant-garden/wp-content/uploads/sites/10/2022/12/emart-011.webp" width={140} height={31} />
+          <img alt="logo" src="https://emart.wpthemedemos.com/plant-garden/wp-content/uploads/sites/10/2022/12/emart-011.webp" width={140} height={31} /><NavLink to="Shop_Now"> Palant</NavLink>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={handleShow} className='d-xl-none max-xl:order-1' />
         <Offcanvas show={show} onHide={handleClose} responsive="xl" >

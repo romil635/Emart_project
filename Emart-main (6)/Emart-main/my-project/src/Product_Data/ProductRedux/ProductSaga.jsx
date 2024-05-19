@@ -13,4 +13,4 @@ function* ProductSaga(){
     yield takeEvery(PRODUCT_LIST, getProduct)
 }
 
-export default ProductSaga
+export default ProductSaga;

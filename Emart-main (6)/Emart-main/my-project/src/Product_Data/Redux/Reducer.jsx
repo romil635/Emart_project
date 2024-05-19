@@ -28,4 +28,4 @@ const reducer =(state = getCartDataFromLocalStorage(), action) => {
     }
 }
 
-export default reducer
+export default reducer;

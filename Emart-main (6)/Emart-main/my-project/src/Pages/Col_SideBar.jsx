@@ -8,4 +8,4 @@ const Col_SideBar = () => {
   )
 }
 
-export default Col_SideBar
+export default Col_SideBar;
