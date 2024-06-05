@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { Container } from 'react-bootstrap'
+import { AlertHeading, Container } from 'react-bootstrap'
 
 const initialValues = {
     firstname: '',
@@ -37,7 +37,7 @@ const Contact_Two = () => {
     <Container>
                 <section className='flex justify-between max-xl:block '>
                     <div className='w-[48%] max-xl:w-auto'>
-                        <div className='w-[100%] flex justify-center '>
+                        <div className='w-[100%] h-[100%] flex justify-center '>
                             <img src="https://emart.wpthemedemos.com/wp-content/uploads/2023/03/contact-img-1.jpg" alt="" className='max-xl:h-[50vh] w-[100vw] max-md:h-auto object-cover'/>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ const Contact_Two = () => {
                                            {
                                             formik.touched.Message && formik.errors.Message ? <div className='text-red-600'>{formik.errors.Message}</div> : null
                                            }
-                                        <button className='bg-black text-white w-full py-[15px] text-center'>Send Message</button>
+                                        <button onClick={alert} className='bg-black text-white w-full py-[15px] text-center'>Send Message</button>
                                     </form>
                                 </div>
                             </section>
