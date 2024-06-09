@@ -7,7 +7,6 @@ import Add from'./Pages/Add'
 import Error from './Pages/Error'
 import EditUser from './Pages/EditUser'
 import { Home1 } from './Pages/Home1'
-import PrivacyPolicy from './Pages/PrivacyPolicy'
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
       <Route path="/*" element={<Error/>}/>
       <Route path="add" element={<Add/>}/>
       <Route path="/EditUser/:id" element={<EditUser/>}/>
-      {/* <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>}/> */}
       
     </Routes>
     </BrowserRouter> 

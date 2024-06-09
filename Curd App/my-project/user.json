@@ -1,39 +1,30 @@
 {
   "User": [
     {
-      "id": "0fa1",
-      "firstname": "srushti",
-      "lastname": "bhanderi",
-      "age": "20",
-      "profession": "devloper",
-      "number": "1243667854",
-      "image": null
-    },
-    {
-      "id": "e7c0",
-      "firstname": "jasmin",
-      "lastname": "mulani",
+      "id": "f96d",
+      "firstname": "Romil",
+      "lastname": "Rakholiya",
       "age": "19",
-      "profession": "devloper",
-      "number": "9876756789",
+      "profession": "full stack developer",
+      "number": "6359358506",
       "image": null
     },
     {
-      "id": "7dbe",
-      "firstname": "ashiti",
-      "lastname": "dhanani",
-      "age": "20",
-      "profession": "devloper",
-      "number": "1654578987",
+      "id": "4f77",
+      "firstname": "Meet",
+      "lastname": "Koladiya",
+      "age": "18",
+      "profession": "full stack developer",
+      "number": "6359358506",
       "image": null
     },
     {
-      "id": "d85c",
-      "firstname": "vishva",
-      "lastname": "hirpara",
-      "age": "20",
-      "profession": "devloper",
-      "number": "768564356",
+      "id": "9216",
+      "firstname": "Harsh",
+      "lastname": "Karkar",
+      "age": "21",
+      "profession": "Front end Developer",
+      "number": "9098745972",
       "image": null
     }
   ]
