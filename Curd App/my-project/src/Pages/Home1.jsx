@@ -8,29 +8,34 @@ import axios from 'axios'
 export function Home1() {
 
 
-  const [data, setData] = useState( [])
+  const [data, setData] = useState([])
 
   const [searchTerm, setsearchTerm] = useState('')
   const [currentpage, setcurrentpage] = useState(1)
   const [perpage, setperpage] = useState(2)
 
 
+  const filterData = data.filter(user => user.firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.lastname.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+
   const totalpages = Math.ceil(data.length / perpage)
 
 
-  const indexofLastData = currentpage + perpage
+  const indexofLastData = currentpage * perpage
   const indecofFristData = indexofLastData - perpage
-  const currentData = data.slice(indecofFristData,indexofLastData)
+  const currentData = filterData.slice(indecofFristData,indexofLastData)
 
   const peginate = (pagenumber) => {
     setcurrentpage(pagenumber)
   }
 
   const nextpage = () => {
-    setperpage((prevpage) => prevpage + 1)
+    setcurrentpage((prevpage) => prevpage + 1)
   }
 
-  const prevpage = () => {
+  const prevpage = () => { 
     setcurrentpage((prevpage) => prevpage - 1)
   }
 
@@ -41,14 +46,12 @@ export function Home1() {
     console.log(res.data, "users");
     setData(res.data)
   }
-
-  const filterData = data.filter(user => user.firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    user.lastname.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-
   useEffect(() => {
     loaduser()
   }, [])
+
+  
+
 
   const onDelete = (id) => {
     axios.delete(`http://localhost:3000/User/${id}`)
@@ -56,13 +59,13 @@ export function Home1() {
         loaduser()
       })
       .catch((error) => {
-        console.log(error, 'error user data');
+        console.log(error, 'error user data');  
       })
   }
 
   return (
     <div>
-      <Navbar />
+      <Navbar searchTerm={searchTerm} setsearchTerm={setsearchTerm} />
       <section className="mx-auto w-full max-w-7xl px-4 py-4">
         <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
           <div>
@@ -193,7 +196,8 @@ export function Home1() {
               </div>
             </div>
           </div>
-
+          {
+            currentData.length == 0 ? null :(
           <div className="flex items-center justify-center pt-6">
             <Link className='mx-2 text-sm font-semibold text-gray-900'>
               <button onClick={prevpage} disabled={currentpage === 1}>
@@ -206,19 +210,22 @@ export function Home1() {
                 <NavLink className={`mx-1 flex justify-center items-center rounded-md border-gray-400 px-3 py-2 text-gray-300 hover:bg-black hover:text-white`} style={{
                   backgroundColor: currentpage == i + 1 ? 'black' : 'transparent', color: currentpage == i + 1 ? 'white' : 'inherit'
                 }}>
-
                   <button key={i} onClick={() => peginate(i + 1)}>{i + 1}</button>
-
                 </NavLink>
               ))
             }
-            <Link className='mx-2 text-sm font-semibold text-gray-900'>
+            <Link className='mx-2 text-sm font-semibold text-gray-900' >
+            <button onClick={nextpage}>
+
               <span>Next </span>
               <span>&rarr;</span>
+            </button>
             </Link>
           </div>
+            )
+          }
         </div>
       </section>
     </div>
-  )
+  )  
 }
